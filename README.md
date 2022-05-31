@@ -10,12 +10,12 @@ $ Route::post('upload',[UploadController::class, "upload"]);
 >  Then right in your controller, create a function to accept a file and either save in a folder or in a database as blob.
 >  In this process we are going to save the file to a folder and also save the file name in the database.
 >  The following is a function inside the controller to manipulate the incoming file.
->  public function upload(Request $request)
->  {
->  // check whether the request has the file.
->     if($request->hasFile('photo')
->     {
->     // get the image from the request
+ public function upload(Request $request)
+  {
+  // check whether the request has the file.
+     if($request->hasFile('photo')
+    {
+     // get the image from the request
 >     $image = $request->file('photo');
 >     // give the image a unique name
 >     $ImageNewName = date("Ymd").''.time().''.$image->getClientOriginalExtension();
