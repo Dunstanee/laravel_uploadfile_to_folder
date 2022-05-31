@@ -16,16 +16,16 @@ $ Route::post('upload',[UploadController::class, "upload"]);
      if($request->hasFile('photo')
     {
      // get the image from the request
->     $image = $request->file('photo');
->     // give the image a unique name
->     $ImageNewName = date("Ymd").''.time().''.$image->getClientOriginalExtension();
->     //initialize the destination of the image
->     $Destination = public_path()."/storage/image_avatar";
->     //Now move the image to the destination
->     $image->move($Destination, $ImageNewName);
->     // Once the image has been save to the destination, pick the $ImageNewName and save it in your database table as a string.
->     }
->  }
+     $image = $request->file('photo');
+     // give the image a unique name
+     $ImageNewName = date("Ymd").''.time().''.$image->getClientOriginalExtension();
+     //initialize the destination of the image
+     $Destination = public_path()."/storage/image_avatar";
+     //Now move the image to the destination
+     $image->move($Destination, $ImageNewName);
+     // Once the image has been save to the destination, pick the $ImageNewName and save it in your database table as a string.
+     }
+  }
 >  Now open your postman and initiate a post request with your localhost url or if in production use the full url .
 >  For input go to body>>form-data and add an input photo as a file. Choose the image file you want to upload.
 >  Click send and check if the action has been executed.
